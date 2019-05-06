@@ -1,0 +1,6 @@
+$Users = @("STRING_OF_USERNAMES","STRING_OF_USERNAMES","STRING_OF_USERNAMES","STRING_OF_USERNAMES","STRING_OF_USERNAMES")
+foreach ($User in $Users)
+ {
+ Add-MailboxPermission -identity <SHAREDMAILBOX> -AccessRight FullAccess -User $User
+ Get-Mailbox <SHAREDMAILBOX> | Add-ADPermission -User $User -ExtendedRights "Send As"
+ }
